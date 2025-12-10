@@ -1,0 +1,22 @@
+Day 2
+
+Input
+- Given as text in single line
+- Ranges in start-end values
+- comma separated ranges
+
+Part 1
+
+Objective: Identify invalid IDs and sum up all invalid IDs
+
+What is an invalid ID?
+- some subsequence of digits of various length that repeats twice
+example
+- 11-22: 11 and 22 are invalid, 1 and 2 repeats 2x
+- 6464: 64 repeats 2x
+- 123123: 123 repeats 2x
+
+Thoughts
+- invalid id has to be some even length (check end value for length)
+- do i need to generate every single number in the range?
+
