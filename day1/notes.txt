@@ -107,4 +107,4 @@ if it starts at 0 do not count
 - R83: 0 + 83 = 83
 - L83: 83 - 83 = 0 | Dial clicks 0 1x
 - R6: 0 + 6
-Result: 9
+Result: 12
