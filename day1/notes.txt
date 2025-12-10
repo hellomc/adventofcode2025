@@ -1,0 +1,110 @@
+Day 1
+
+Part 1
+
+Objective: figure out the password
+
+Safe
+- has an arrow
+- numbers 0 to 99 in order
+- as you turn the dial, it makes a small click noise until reaching the number
+
+input.txt
+- sequence of rotations
+- L or R: rotate left to lower numbers or right to higher numbers
+- ##: distance value for how many clicks the dial should be rotated
+
+example 1
+- dial starts at 11
+- rotation R8 11 + 8 = 19
+- rotation L19 19 - 19 = 0
+
+example 2
+- dial starts at 0
+- L1 0 - 1 = 99
+
+example 3
+- dial starts at 99
+- R1 99 + 1 = 0
+
+example 4
+- dial starts at 5
+- L10 5 - 10 = 95
+- R5 95 + 5 = 0
+
+Dial starts by pointing at 50.
+The actual password is the number of times the dials is left pointing at 0 after any rotation in the sequence.
+
+toy_input.txt
+L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82
+
+Rotations
+- Dial starts at 50
+- L68: 50 - 68 = -18 -> 82
+- L30: 82 - 30 = 52
+- R48: 52 + 48 = 100 -> 0
+- L5 : 0 - 5 = 95
+- R60: 95 + 60 = 155 -> 55
+- L55: 55 - 55 = 0
+- L1: 0 - 1 = -1 -> 99
+- L99: 99 - 99 = 0
+- R14: 0 + 14 = 14
+- L82: 14 - 82 = -68 -> 32
+
+Answer: 1018
+
+Part 2
+
+Objective: use password method 0x434C49434B, count the number of times any click causes the dial to point to 0, happens during rotation or at end of one
+
+example
+current position 97
+- L497: 97 - 497 = -400 -> 0 passes 0 4 times
+- L81: 0 - 81 = -81 -> 19
+
+example
+current position 50
+- R1000: 50 + 1000 = 1050 -> 50 | Dial clicks 0 10 times
+
+toy_input.txt
+Rotations
+- Dial starts at 50
+- L68: 50 - 68 = -18 -> 82  | Dial clicks 0 once
+- L30: 82 - 30 = 52
+- R48: 52 + 48 = 100 -> 0  | Dial clicks 0 once
+- L5 : 0 - 5 = 95
+- R60: 95 + 60 = 155 -> 55  | Dial clicks 0 once
+- L55: 55 - 55 = 0  | Dial clicks 0 once
+- L1: 0 - 1 = -1 -> 99
+- L99: 99 - 99 = 0  | Dial clicks 0 once
+- R14: 0 + 14 = 14
+- L82: 14 - 82 = -68 -> 32  | Dial clicks 0 once
+Result: 6
+
+toy_input2.txt
+Start dial at 60
+if it starts at 0 do not count
+- L460: 60 - 460 = -400 -> 0 | Dial clicks 0 5x
+- L54: 0 - 54 = -54 -> 46
+- R70: 46 + 70 = 116 -> 16 | Dial clicks 0 1x
+- L16: 16 - 16 = 0 | Dial clicks 0 1x
+- L55: 0 - 55 = -55 -> 45
+- L45: 45 - 45 = 0 | Dial clicks 0 1x
+- R27: 0 + 27 = 27
+- L21: 27 - 21 = 6
+- L54: 6 - 54 = -48 -> 52 | Dial clicks 0 1x
+- L86: 52 - 86 = -34 -> 66 | Dial clicks 0 1x
+- L66: 66 - 66 = 0 | Dial clicks 0 1x
+- R83: 0 + 83 = 83
+- L83: 83 - 83 = 0 | Dial clicks 0 1x
+- R6: 0 + 6
+Result: 9
