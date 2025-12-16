@@ -1,0 +1,8 @@
+Day 5
+
+Objective: Count the number of fresh ingredient IDs given intervals
+
+Read input
+
+
+Objective: Count the total number of fresh ingredient IDs
