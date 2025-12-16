@@ -1,0 +1,17 @@
+Day 4
+
+Objective: Count the number of accessible paper rolls
+
+Input is grid map
+@ shows paper rolls
+
+Accessible paper roll
+surrounded by less than 4 rolls
+
+Objective: Remove accessible paper rolls
+
+Iteratively update the grid
+Remove accessible rolls and keep count
+Update the grid
+Find more accessible rolls
+Stop when there are no more accessible rolls
