@@ -1,0 +1,29 @@
+Day 6
+
+Objective: Output grand total adding all the answers to the individual problems
+
+toy_input
+
+123 328  51 64 
+ 45 64  387 23 
+  6 98  215 314
+*   +   *   + 
+
+4 columns => 4 problems
+
+123 * 45 * 6 = 33210
+328 + 64 + 98 = 490
+51 * 387 * 215 = 4243455
+64 + 23 + 314 = 401
+
+Sum 33210 + 490 + 4243455 + 401 = 4277556
+
+Read input
+
+Calculate the individual problem
+
+Sum all the answers of the problems
+
+Part 2
+
+read right-to-left columns
