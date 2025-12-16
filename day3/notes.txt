@@ -1,0 +1,37 @@
+Day 3
+
+Part 1
+
+Objective: Find subsequence of length 2 that is maximum
+
+toy_input.txt
+
+987654321111111
+811111111111119
+234234234234278
+818181911112111
+
+Each line is a single bank of batteries
+Turn on exactly 2 batteries to maximize the joltage
+Numbers remain in order from left to right
+
+987654321111111 | 98
+811111111111119 | 89
+234234234234278 | 78
+818181911112111 | 92
+
+sum of total output voltage = 98 + 89 + 78 + 92 = 357
+
+Pseudocode
+
+read input from text file
+input each line from
+
+2 pointers
+get subsequence of length 2
+find max value
+sum all max values for given bank of batteries
+
+Part 2
+
+now find subsequence of length 12
