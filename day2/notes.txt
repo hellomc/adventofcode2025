@@ -20,3 +20,24 @@ Thoughts
 - invalid id has to be some even length (check end value for length)
 - do i need to generate every single number in the range?
 
+Pseudocode
+
+Get ranges from file
+Comma-separated values
+Then separate by dash start-end
+Output list of tuple ranges [(start, end),..(startN, endN)]
+
+evaluate start-end ranges
+for id in range(start, end + 1):
+    if len(str(num)) % 2 == 0: looking for even length
+        evaluate for invalid number
+            check if there is subsequence of numbers and it repeats 2x
+        if invalid add to list of invalid numbers
+
+calculate sum of valid numbers
+
+part 2
+
+sequence repeats at least twice
+check all possible lengths of sequences in string
+
