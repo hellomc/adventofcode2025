@@ -4,5 +4,10 @@ Objective: Count the number of fresh ingredient IDs given intervals
 
 Read input
 
+Check if ID exists in the range
+
 
 Objective: Count the total number of fresh ingredient IDs
+
+Merge intervals
+Count number of total ids
