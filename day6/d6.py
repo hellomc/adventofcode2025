@@ -42,6 +42,30 @@ class Solution():
 
         return total_sum
     
+    def read_input2(self, filename):
+        """
+        Get input data in column format
+        
+        :param self: Description
+        :param filename: Description
+        """
+        values = []
+        operators = []
+
+        with open(filename, 'r') as f:
+            columns = zip(*f)
+            for column in columns:
+                col = ''.join(column).strip()
+                print(col)
+                if '+' in col or '*' in col:
+                    operators.append(col[-1])
+                    values.append(int(col[:-1]))
+                elif col.isdigit():
+                    values.append(int(col))
+
+        return values, operators
+
+    
 if __name__ == "__main__":
     sol = Solution()
 
@@ -61,4 +85,5 @@ if __name__ == "__main__":
     # Answer input part 1: 6957525317641
 
     """ Part 2 """
-    
+    tval2, tops2 = sol.read_input2(toy_input)
+    print(tval2, tops2)
