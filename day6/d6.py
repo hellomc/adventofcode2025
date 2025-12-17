@@ -48,22 +48,34 @@ class Solution():
         
         :param self: Description
         :param filename: Description
+        
+        :return: output [([v01, v02, v0N], 'op1'), ([v11, v12, v1N], 'op2')]
         """
-        values = []
-        operators = []
 
         with open(filename, 'r') as f:
-            columns = zip(*f)
-            for column in columns:
-                col = ''.join(column).strip()
-                print(col)
-                if '+' in col or '*' in col:
-                    operators.append(col[-1])
-                    values.append(int(col[:-1]))
-                elif col.isdigit():
-                    values.append(int(col))
+            lines = [line.rstrip('\n').rstrip('\r') for line in f]
+        
+        width = max(len(line) for line in lines)
+        grid = [line.ljust(width) for line in lines]
 
-        return values, operators
+        problems = []
+
+        tokens = []
+        for col in zip(*grid):
+            token = "".join(ch for ch in col if ch.isdigit() or ch in '+*')
+            if token:
+                tokens.append(token)
+
+        problems = []
+        values = []
+        for token in reversed(tokens):
+            if token[-1] in '+*':
+                problems.append((values + [int(token[:-1])], token[-1]))
+                values = []
+            else:
+                values.append(int(token))
+
+        return problems
 
     
 if __name__ == "__main__":
@@ -85,5 +97,5 @@ if __name__ == "__main__":
     # Answer input part 1: 6957525317641
 
     """ Part 2 """
-    tval2, tops2 = sol.read_input2(toy_input)
-    print(tval2, tops2)
+    problems = sol.read_input2(toy_input)
+    print(problems)
