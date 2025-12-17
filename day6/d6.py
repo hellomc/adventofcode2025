@@ -3,7 +3,7 @@ Docstring for day6.d6
 """
 
 class Solution():
-    debug = True
+    debug = False
 
     def read_input(self, filename):
         values = []
@@ -23,7 +23,8 @@ class Solution():
     def calculate(self, values, operators):
         num_probs = len(operators)
         num_values = len(values)
-        print(num_probs, num_values)
+        if Solution.debug:
+            print(num_probs, num_values)
 
         total_sum = 0
 
@@ -76,6 +77,24 @@ class Solution():
                 values.append(int(token))
 
         return problems
+    
+    def calculate2(self, problems):
+        total_sum = 0
+
+        for prob in problems:
+            if prob[1] == '+':
+                answer = 0
+            elif prob[1] == '*':
+                answer = 1
+            values = prob[0]
+            for value in values:
+                if prob[1] == '+':
+                    answer += value
+                if prob[1] == '*':
+                    answer *= value
+            total_sum += answer
+
+        return total_sum
 
     
 if __name__ == "__main__":
@@ -98,4 +117,15 @@ if __name__ == "__main__":
 
     """ Part 2 """
     problems = sol.read_input2(toy_input)
-    print(problems)
+    if sol.debug:
+        print(problems)
+    total_sumt2 = sol.calculate2(problems)
+    print(f'Toy input column total sum (part 2): {total_sumt2}')
+
+    # Answer toy input part 2: 3263827
+
+    problems2 = sol.read_input2(input1)
+    total_sum2 = sol.calculate2(problems2)
+    print(f'Input column total sum (part 2): {total_sum2}')
+
+    # Answer input part 2: 13215665360076
